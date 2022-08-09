@@ -3,13 +3,13 @@
     "id": "sitelink",
     "type": "inputstring",
     "name": "Site Link",
-    "value": "https://yts.unblockit.ist/"
+    "value": "https://thepiratebay.org/"
   },
   {
     "id": "cookieheader",
     "type": "hiddendata",
     "name": "CookieHeader",
-    "value": "PHPSESSID=9d3js8uedijbjkqq9esgc2i8h1"
+    "value": ""
   },
   {
     "id": "lasterror",

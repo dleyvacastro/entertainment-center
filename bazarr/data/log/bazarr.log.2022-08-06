@@ -1,0 +1,31 @@
+06/08/2022 00:29:07|INFO    |root                            |BAZARR Finished searching for missing Series Subtitles. Check History for more information.|
+06/08/2022 00:51:40|INFO    |root                            |BAZARR Finished searching for missing Movies Subtitles. Check History for more information.|
+06/08/2022 03:22:39|WARNING |retry.api                       |HTTPConnectionPool(host='sapidb.caretas.club', port=80): Max retries exceeded with url: /movie?query=French+Kiss&year=1995 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f1418d7db80>, 'Connection to sapidb.caretas.club timed out. (connect timeout=10)')), retrying in 5 seconds...|
+06/08/2022 03:22:58|WARNING |retry.api                       |HTTPConnectionPool(host='sapidb.caretas.club', port=80): Max retries exceeded with url: /movie?query=French+Kiss&year=1995 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f141098aa00>, 'Connection to sapidb.caretas.club timed out. (connect timeout=10)')), retrying in 5 seconds...|
+06/08/2022 03:23:18|INFO    |root                            |Throttling sucha for 1 hour, until 22/08/06 04:23, because of: ConnectTimeout. Exception info: MaxRetryError("HTTPConnectionPool(host='sapidb.caretas.club', port=80): Max retries exceeded with url: /movie?query=French+Kiss&year=1995 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f141098a340>, 'Connection to sapidb.caretas.club timed out. (connect timeout=10)'))")|
+06/08/2022 03:23:18|INFO    |root                            |BAZARR Finished searching for Subtitles to upgrade. Check History for more information.|
+06/08/2022 03:29:07|INFO    |root                            |BAZARR Finished searching for missing Series Subtitles. Check History for more information.|
+06/08/2022 03:51:40|INFO    |root                            |BAZARR Finished searching for missing Movies Subtitles. Check History for more information.|
+06/08/2022 04:00:00|INFO    |root                            |BAZARR All existing episode subtitles indexed from disk.|
+06/08/2022 05:00:00|INFO    |root                            |BAZARR All existing movie subtitles indexed from disk.|
+06/08/2022 06:29:07|INFO    |root                            |BAZARR Finished searching for missing Series Subtitles. Check History for more information.|
+06/08/2022 06:51:40|INFO    |root                            |BAZARR Finished searching for missing Movies Subtitles. Check History for more information.|
+06/08/2022 09:29:07|INFO    |root                            |BAZARR Finished searching for missing Series Subtitles. Check History for more information.|
+06/08/2022 09:51:40|INFO    |root                            |BAZARR Finished searching for missing Movies Subtitles. Check History for more information.|
+06/08/2022 11:06:32|INFO    |root                            |BAZARR Running cache maintenance|
+06/08/2022 15:31:19|INFO    |root                            |BAZARR trying to connect to Sonarr SignalR feed...|
+06/08/2022 15:31:19|INFO    |root                            |BAZARR trying to connect to Radarr SignalR feed...|
+06/08/2022 15:31:19|INFO    |root                            |BAZARR is started and waiting for request on http://***.***.***.***:6767|
+06/08/2022 17:06:39|WARNING |apscheduler.executors.default   |Run time of job "Update Movie list from Radarr (trigger: interval[1:00:00], next run at: 2022-08-06 17:25:00 -05)" was missed by 0:41:38.659540|
+06/08/2022 17:06:39|WARNING |apscheduler.executors.default   |Run time of job "Sync episodes with Sonarr (trigger: interval[1:00:00], next run at: 2022-08-06 17:26:18 -05)" was missed by 0:40:20.664845|
+06/08/2022 17:06:39|WARNING |apscheduler.executors.default   |Run time of job "Update Series list from Sonarr (trigger: interval[1:00:00], next run at: 2022-08-06 17:27:27 -05)" was missed by 0:39:11.667416|
+06/08/2022 17:29:59|WARNING |apscheduler.executors.default   |Run time of job "Update Movie list from Radarr (trigger: interval[1:00:00], next run at: 2022-08-06 18:25:00 -05)" was missed by 0:04:59.338133|
+06/08/2022 17:29:59|WARNING |apscheduler.executors.default   |Run time of job "Sync episodes with Sonarr (trigger: interval[1:00:00], next run at: 2022-08-06 18:26:18 -05)" was missed by 0:03:41.339020|
+06/08/2022 17:29:59|WARNING |apscheduler.executors.default   |Run time of job "Update Series list from Sonarr (trigger: interval[1:00:00], next run at: 2022-08-06 18:27:27 -05)" was missed by 0:02:32.340549|
+06/08/2022 19:41:53|INFO    |root                            |BAZARR SignalR client for Radarr is connected and waiting for events.|
+06/08/2022 19:41:53|WARNING |apscheduler.executors.default   |Run time of job "Search for wanted Series Subtitles (trigger: interval[3:00:00], next run at: 2022-08-06 21:04:31 -05)" was missed by 1:37:21.818124|
+06/08/2022 19:41:53|WARNING |apscheduler.executors.default   |Run time of job "Search for wanted Movies Subtitles (trigger: interval[3:00:00], next run at: 2022-08-06 21:19:25 -05)" was missed by 1:22:27.818576|
+06/08/2022 19:41:53|WARNING |apscheduler.executors.default   |Run time of job "Update Release Info (trigger: interval[3:00:00], next run at: 2022-08-06 21:22:07 -05)" was missed by 1:19:45.819197|
+06/08/2022 19:41:53|WARNING |apscheduler.executors.default   |Run time of job "Update Movie list from Radarr (trigger: interval[1:00:00], next run at: 2022-08-06 20:25:00 -05)" was missed by 0:16:52.822687|
+06/08/2022 19:41:53|WARNING |apscheduler.executors.default   |Run time of job "Sync episodes with Sonarr (trigger: interval[1:00:00], next run at: 2022-08-06 18:26:18 -05)" was missed by 0:15:34.826847|
+06/08/2022 19:41:53|WARNING |apscheduler.executors.default   |Run time of job "Update Series list from Sonarr (trigger: interval[1:00:00], next run at: 2022-08-06 20:27:27 -05)" was missed by 0:14:25.830550|

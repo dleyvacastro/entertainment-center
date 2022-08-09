@@ -7,7 +7,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Asia/Kolkata
+      - TZ=America/Bogota
       - UMASK_SET=022 #optional
     volumes:
       - ./sonnar/data:/config
@@ -26,7 +26,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Asia/Kolkata
+      - TZ=America/Bogota
       - UMASK_SET=022 #opTorrentRssIndexertional
     volumes:
       - ./radarr/data:/config
@@ -39,13 +39,32 @@ services:
       - webnet
     depends_on:
       - "qbittorrent"
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:latest
+    container_name: bazarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Bogota
+    volumes:
+      - ./bazarr/data:/config
+      - ./radarr/movies:/movies #optional
+      - ./sonnar/tv:/tv #optional
+    ports:
+      - 6767:6767
+    restart: unless-stopped
+    networks:
+      - webnet
+    depends_on:
+      - "sonarr"
+      - "radarr"
   jellyfin:
     image: ghcr.io/linuxserver/jellyfin
     container_name: jellyfin
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Asia/Kolkata
+      - TZ=America/Bogota
       - JELLYFIN_PublishedServerUrl=192.168.1.108
     volumes:
       - ./jellyfin/data:/config
@@ -56,7 +75,7 @@ services:
       - 8096:8096 # need to be exposed for jellyfin App.
       - 8920:8920 #optional
       - 7359:7359/udp #optional
-      - 1900:1900/udp #optional
+        # - 1900:1900/udp #optional
     # devices:
     #   - /dev/dri:/dev/dri #optional
     restart: unless-stopped
@@ -71,7 +90,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Asia/Kolkata
+      - TZ=America/Bogota
       - UMASK_SET=022
       - WEBUI_PORT=8080
     volumes:
@@ -90,7 +109,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Asia/Kolkata
+      - TZ=America/Bogota
     volumes:
       - ./nginx:/config
     ports:
@@ -110,7 +129,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Asia/Kolkata
+      - TZ=America/Bogota
     volumes:
       - ./jackett/config:/config
       - ./downloads/qbit:/downloads
@@ -128,7 +147,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Asia/Kolkata
+      - TZ=America/Bogota
     ports:
         - 8191:8191
     networks:
@@ -140,7 +159,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Asia/Kolkata
+      - TZ=America/Bogota
       - BASE_PATH=/book/
     ports:
         - 8900:80

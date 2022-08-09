@@ -32,7 +32,7 @@
     "id": "category",
     "type": "inputselect",
     "name": "Category",
-    "value": "0_0",
+    "value": "1_3",
     "options": {
       "0_0": "All categories",
       "1_0": "Anime",

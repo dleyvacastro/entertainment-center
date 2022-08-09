@@ -3,7 +3,7 @@
     "id": "sitelink",
     "type": "inputstring",
     "name": "Site Link",
-    "value": "https://1337x.to/"
+    "value": "https://www.limetorrents.lol/"
   },
   {
     "id": "cookieheader",
@@ -21,7 +21,7 @@
     "id": "downloadlink",
     "type": "inputselect",
     "name": "Download link",
-    "value": "http://itorrents.org/",
+    "value": "magnet:",
     "options": {
       "http://itorrents.org/": "iTorrents.org",
       "magnet:": "magnet"
@@ -31,7 +31,7 @@
     "id": "downloadlink(fallback)",
     "type": "inputselect",
     "name": "Download link (fallback)",
-    "value": "magnet:",
+    "value": "http://itorrents.org/",
     "options": {
       "http://itorrents.org/": "iTorrents.org",
       "magnet:": "magnet"
@@ -41,21 +41,11 @@
     "id": "sortrequestedfromsite",
     "type": "inputselect",
     "name": "Sort requested from site",
-    "value": "time",
+    "value": "date",
     "options": {
-      "time": "created",
-      "seeders": "seeders",
+      "date": "created",
+      "seeds": "seeders",
       "size": "size"
-    }
-  },
-  {
-    "id": "orderrequestedfromsite",
-    "type": "inputselect",
-    "name": "Order requested from site",
-    "value": "desc",
-    "options": {
-      "desc": "desc",
-      "asc": "asc"
     }
   },
   {

@@ -3,13 +3,13 @@
     "id": "sitelink",
     "type": "inputstring",
     "name": "Site Link",
-    "value": "https://eztv.re/"
+    "value": "https://thepiratebay.org/"
   },
   {
     "id": "cookieheader",
     "type": "hiddendata",
     "name": "CookieHeader",
-    "value": "PHPSESSID=2c1e482f3c14765c274033951b5de6ec"
+    "value": null
   },
   {
     "id": "lasterror",

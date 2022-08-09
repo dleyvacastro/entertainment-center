@@ -1,0 +1,21 @@
+2022-08-07 23:47:52.8262 Info Attempting to copy System.Xml.Serialization.dll from source: /tmp/JackettUpdate-v0.20.1627-637955128659331029/Jackett/System.Xml.Serialization.dll to destination: /app/Jackett/System.Xml.Serialization.dll 
+2022-08-07 23:47:52.9302 Info Copied System.Xml.Serialization.dll 
+2022-08-07 23:47:52.9302 Info Attempting to copy System.Xml.XDocument.dll from source: /tmp/JackettUpdate-v0.20.1627-637955128659331029/Jackett/System.Xml.XDocument.dll to destination: /app/Jackett/System.Xml.XDocument.dll 
+2022-08-07 23:47:52.9354 Info Copied System.Xml.XDocument.dll 
+2022-08-07 23:47:52.9354 Info Attempting to copy System.Xml.XmlDocument.dll from source: /tmp/JackettUpdate-v0.20.1627-637955128659331029/Jackett/System.Xml.XmlDocument.dll to destination: /app/Jackett/System.Xml.XmlDocument.dll 
+2022-08-07 23:47:52.9402 Info Copied System.Xml.XmlDocument.dll 
+2022-08-07 23:47:52.9402 Info Attempting to copy System.Xml.XmlSerializer.dll from source: /tmp/JackettUpdate-v0.20.1627-637955128659331029/Jackett/System.Xml.XmlSerializer.dll to destination: /app/Jackett/System.Xml.XmlSerializer.dll 
+2022-08-07 23:47:52.9454 Info Copied System.Xml.XmlSerializer.dll 
+2022-08-07 23:47:52.9454 Info Attempting to copy System.Xml.XPath.dll from source: /tmp/JackettUpdate-v0.20.1627-637955128659331029/Jackett/System.Xml.XPath.dll to destination: /app/Jackett/System.Xml.XPath.dll 
+2022-08-07 23:47:52.9504 Info Copied System.Xml.XPath.dll 
+2022-08-07 23:47:52.9504 Info Attempting to copy System.Xml.XPath.XDocument.dll from source: /tmp/JackettUpdate-v0.20.1627-637955128659331029/Jackett/System.Xml.XPath.XDocument.dll to destination: /app/Jackett/System.Xml.XPath.XDocument.dll 
+2022-08-07 23:47:52.9551 Info Copied System.Xml.XPath.XDocument.dll 
+2022-08-07 23:47:52.9551 Info Attempting to copy WindowsBase.dll from source: /tmp/JackettUpdate-v0.20.1627-637955128659331029/Jackett/WindowsBase.dll to destination: /app/Jackett/WindowsBase.dll 
+2022-08-07 23:47:52.9603 Info Copied WindowsBase.dll 
+2022-08-07 23:47:52.9603 Info Attempting to copy YamlDotNet.dll from source: /tmp/JackettUpdate-v0.20.1627-637955128659331029/Jackett/YamlDotNet.dll to destination: /app/Jackett/YamlDotNet.dll 
+2022-08-07 23:47:52.9671 Info Copied YamlDotNet.dll 
+2022-08-07 23:47:52.9671 Info File copying complete 
+2022-08-07 23:47:52.9671 Info Deleting file /app/Jackett/Definitions/bitbr.yml 
+2022-08-07 23:47:52.9753 Info Deleting file /app/Jackett/Definitions/ilcorsaroverde.yml 
+2022-08-07 23:47:52.9783 Info Deleting file /app/Jackett/Definitions/pornolive.yml 
+2022-08-07 23:47:52.9956 Info Killing process 128 
