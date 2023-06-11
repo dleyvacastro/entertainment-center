@@ -1,0 +1,243 @@
+---
+version: "3"
+services:
+  filebrowser:
+    image: hurlenko/filebrowser
+    user: "${UID}:${GID}"
+    ports:
+      - 3001:8080
+    volumes:
+      - .:/data
+      - ./filebrowser/CONFIG_DIR:/config
+    environment:
+      - FB_BASEURL=/filebrowser
+    hostname: files
+    networks:
+      - webnet
+    restart: unless-stopped
+  heimdal:
+    image: lscr.io/linuxserver/heimdall:latest
+    container_name: heimdall
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Bogota
+    volumes:
+      - ./heimdal/config:/config
+    ports:
+      - 80:80
+      - 443:443
+    restart: unless-stopped
+    networks:
+        - webnet
+  sonarr:
+          #    image: linuxserver/sonarr
+    image: mdhiggins/sonarr-sma
+    container_name: sonarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Bogota
+      - UMASK_SET=022 #optional
+    volumes:
+      - ./sonarr/data:/config
+      - ./sonarr/tv:/tv
+      - ./downloads/qbit:/downloads
+      - ./transcoder:/transcoder
+      - ./scripting:/scripts
+    ports:
+      - 8989:8989
+    restart: unless-stopped
+    hostname: "sonarr"
+    networks:
+      - webnet
+    depends_on:
+      - "qbittorrent"
+  radarr:
+    image: linuxserver/radarr
+    container_name: radarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Bogota
+      - UMASK_SET=022 #opTorrentRssIndexertional
+    volumes:
+      - ./radarr/data:/config
+      - ./radarr/movies:/movies
+      - ./downloads/qbit:/downloads
+    ports:
+      - 8990:7878
+    restart: unless-stopped
+    hostname: "radarr"
+    networks:
+      - webnet
+    depends_on:
+      - "qbittorrent"
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:latest
+    container_name: bazarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Bogota
+    volumes:
+      - ./bazarr/data:/config
+      - ./radarr/movies:/movies #optional
+      - ./sonarr/tv:/tv #optional
+    ports:
+      - 6767:6767
+    restart: unless-stopped
+    hostname: bazarr
+    networks:
+      - webnet
+    depends_on:
+      - "sonarr"
+      - "radarr"
+  tdarr:
+    image: ghcr.io/haveagitgat/tdarr:latest
+    container_name: tdarr
+    environment:
+      - TZ=America/Bogota
+      - PUID=1000
+      - PGID=1000
+      - UMASK_SET=002
+      - serverIP=0.0.0.0
+      - serverPort=8266
+      - webUIPort=8265
+      - internalNode=true
+      - nodeID=MyInternalNode
+    volumes:
+      - ./tdarr/server:/app/server
+      - ./tdarr/configs:/app/configs
+      - ./tdarr/logs:/app/logs
+      - ./sonarr/tv:/media/tv
+      - ./radarr/movies:/media/movies
+      - ./tdarr/transcode_cache:/temp
+    ports:
+      - 8265:8265 # webUI port
+      - 8266:8266 # server port
+      - 8267:8267 # Internal node port
+      - 8268:8268 # Example extra node port
+    restart: unless-stopped
+    hostname: tdarr
+    networks:
+      - webnet
+  plex:
+    image: plexinc/pms-docker:latest
+    container_name: plex
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - VERSION=docker
+      - TZ=America/Bogota
+      - PLEX_CLAIM=claim-11db1M8Ysjm1dFd4-dD4
+    volumes:
+      - ./plex/config:/config
+      - ./sonarr/tv:/tv
+      - ./radarr/movies:/movies
+    ports:
+      - "32400:32400"
+      - "3005:3005"
+      - "8324:8324"
+      - "32469:32469"
+      - "1900:1900"
+      - "32410:32410"
+      - "32412:32412"
+      - "32413:32413"
+      - "32414:32414"
+    restart: unless-stopped
+  jellyfin:
+    image: ghcr.io/linuxserver/jellyfin
+    container_name: jellyfin
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Bogota
+      - JELLYFIN_PublishedServerUrl=192.168.1.108
+    volumes:
+      - ./jellyfin/data:/config
+      - ./sonarr/tv:/data/tvshows
+      - ./radarr/movies:/data/movies
+      - ./jellyfin/transcoding:/transcode #optional
+    ports:
+      - 8096:8096 # need to be exposed for jellyfin App.
+      - 8920:8920 #optional
+      - 7359:7359/udp #optional
+        # - 1900:1900/udp #optional
+    # devices:
+    #   - /dev/dri:/dev/dri #optional
+    restart: unless-stopped
+    hostname: jellyfin
+    depends_on:
+      - "jackett"
+    networks:
+      - webnet
+# Qbittorrent
+  qbittorrent:
+    image: linuxserver/qbittorrent
+    container_name: qbittorrent
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Bogota
+      - UMASK_SET=022
+      - WEBUI_PORT=8080
+    volumes:
+      - ./qbittorrent:/config
+      - ./downloads/qbit/:/downloads
+    ports:
+      - 6881:6881
+      - 6881:6881/udp
+      - 8080:8080
+    restart: unless-stopped
+    networks:
+      - webnet
+  jackett:
+    image: ghcr.io/linuxserver/jackett
+    container_name: jackett
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Bogota
+    volumes:
+      - ./jackett/config:/config
+      - ./downloads/qbit:/downloads
+    ports:
+      - 9117:9117
+    depends_on:
+      - "flaresolverr"
+    networks:
+      - webnet
+    restart: unless-stopped
+  flaresolverr:
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    container_name: flaresolverr
+    restart: unless-stopped
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Bogota
+    ports:
+        - 8191:8191
+    networks:
+      - webnet
+  openbooks:
+    image: evanbuss/openbooks
+    container_name: openbooks
+    restart: unless-stopped
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Bogota
+      - BASE_PATH=/book/
+    ports:
+        - 8900:80
+    volumes:
+      - ./downloads/qbit:/books
+    networks:
+      - webnet
+networks:
+  webnet:
+    name: webnet
+    driver: bridge
+ 
